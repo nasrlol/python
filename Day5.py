@@ -1,46 +1,48 @@
-#Measuring reaction time
-
 import random
 from tkinter import *
+import tkinter as tk
+import time
+from tkinter import messagebox
 
-def measuringTime():
-    while True:
-        time_interval = random.randint(1, 7) * 1000
-        root.after(time_interval)
-        greenScreen()
+def start_game():
+    start_time = time.time()
 
-def greenScreen():
-    root.configure(bg="green")
-    time_interval = random.randint(1, 5) * 1000
-    root.after(time_interval, lambda: root.configure(bg = "black"))
-    measuringTime()
+    def show_green_screen():
+        root.configure(bg="green")
+        root.bind("<Button-1>", lambda event, start_time=start_time: check_reaction_time(start_time))
+    global randInt 
+    randInt = random.randint(1000, 7000)
+    root.after(randInt, show_green_screen)  # Random delay between 1 to 5 seconds
+
+def check_reaction_time(start_time):
+    end_time = time.time()
+    reaction_time = ((end_time - start_time) * 1000) - randInt  # Convert to milliseconds
+    messagebox.showinfo(title="Reaction Time", message=f"Your reaction time: {reaction_time:.3f} ms")
+    root.configure(bg="black")
+    root.unbind("<Button-1>")
 
 
-def fullScreen():
-    root.attributes("-fullscreen", True)
+def toggle_full_screen():
+    if not root.attributes("-fullscreen"):
+        root.attributes("-fullscreen", True)
+    else:
+        root.attributes("-fullscreen", False)
 
-def smallScreen():
-    root.attributes("-fullscreen", False)
-    
-def exitPrgrm():
-    exit()
+def exit_program():
+    root.destroy()
 
 root = Tk()
 root.title("ReactionTime")
 root.geometry('800x600')
 root.configure(bg="black")
 
-startBtn = Button(root, text="start", bg = "white", fg = "black", command = measuringTime)
+startBtn = Button(root, text="Start", bg="white", fg="black", command=start_game)
 startBtn.grid(column=2, row=2)
 
-fullScreenBtn = Button(root, text="Fullscreen", bg = "white", fg = "black", command = fullScreen)
+fullScreenBtn = Button(root, text="Toggle Fullscreen", bg="white", fg="black", command=toggle_full_screen)
 fullScreenBtn.grid(column=4, row=2)
 
-smallScreenBtn = Button(root, text="Smallscreen", bg = "white", fg = "black", command = smallScreen)
-smallScreenBtn.grid(column=6, row=2)
-
-exitBtn = Button(root, text="exit", bg = "white", fg = "black", command = exitPrgrm)
+exitBtn = Button(root, text="Exit", bg="white", fg="black", command=exit_program)
 exitBtn.grid(column=8, row=2) 
 
 root.mainloop()
-
