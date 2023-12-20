@@ -1,7 +1,3 @@
-#Snake
-
-
-import math
 import random
 import pygame
 import tkinter as tk
@@ -124,7 +120,6 @@ class snake(object):
 
 def drawGrid(w, rows, surface, ):
     sizeBtwn = w // rows
-    sizeBtwn = w // rows
     
     x = 0
     y = 0
@@ -190,7 +185,7 @@ def main():
         for x in range(len(s.body)):
             if s.body[x].pos in list(map(lambda z:z.pos,s.body[x+1:])):
                 print('Score: ', len(s.body))
-                message_box('tyfus downey mongol probeer harder8', 'Play again...')
+                message_box('Nt', 'Play again...')
                 s.reset((10,10))
                 break
         redrawWindow(win)
