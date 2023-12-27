@@ -1,5 +1,5 @@
 from rpi_lcd import LCD
-import speech_recognition as sro
+import speech_recognition as sr
 import time
 
 r = sr.Recognizer()
