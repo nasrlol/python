@@ -43,6 +43,7 @@ def markcompleted():
        
 #creating a window
 window = Tk()
+
 #giving the window a title
 window.title("TO-DO LIST")
 
