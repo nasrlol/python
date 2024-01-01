@@ -1,30 +1,33 @@
 from rpi_lcd import LCD
 import speech_recognition as sr
-import time
+from time import sleep
+import sounddevice 
 
 r = sr.Recognizer()
 lcd = LCD()
 mic = sr.Microphone()
 
-def listen_voice():
-    mic = sr.Microphone()
-    while True:
-        with mic as source:
-            lcd.text("Listening...", 1)
-            audio = r.listen(source)
-            time.sleep(3)
-            lcd.clear()
-            
-        return audio
+# Clearing the lcd before starting the program
+lcd.clear()
 
+# Listening to the user's voice and putting it into a variable
+def listen_voice():
+    global audio
+    with mic as source:
+        audio = r.listen(source)
+    return audio
+
+# Transcribing the audio to text and printing it out
+# Using the google speech recognizer 
+# Google speech recognizer does require a internet connection
 def recognize_speech(audio):
-    error = "Sorry, I couldn't understand that."
-    r_error = "Sorry, there was an error while processing your request."
+    error = "400"
+    r_error = "401"
 
     try:
-        text = r.recognize_google(audio)
-        lcd.text(f"You said: {text}", 1)
-        print(f"Printing on screen: {text}")
+        words = r.recognize_google(audio)
+        lcd.text(words, 1)
+        print(f"Printing on screen: {words}")
     except sr.UnknownValueError:
         lcd.text(error, 1)
         print(error)
@@ -32,9 +35,11 @@ def recognize_speech(audio):
         lcd.text(r_error, 1)
         print(r_error)
 
+
 while True:
     audio = listen_voice()
     recognize_speech(audio)
-    print(audio)
+    
+
         
                                  
