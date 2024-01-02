@@ -14,6 +14,7 @@ lcd.clear()
 def listen_voice():
     global audio
     with mic as source:
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
     return audio
 
