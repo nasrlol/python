@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import random
 import tkinter as tk
 from tkinter import messagebox
@@ -60,15 +59,6 @@ root.geometry("800x500")
 root.mainloop()  
 
 
-  
-       
-=======
-#ticatactoe 
-
-print("- - -",
-      "- - -")
-
-#unfinished 
 
 
 
