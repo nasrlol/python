@@ -57,12 +57,3 @@ root.title("TIC TAC TOE")
 root.geometry("800x500")
    
 root.mainloop()  
-
-
-
-
-
-
->>>>>>> b6d3319447b8d81c0866ea3759d82f6261455c15
-
-
