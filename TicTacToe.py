@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import random
 import tkinter as tk
 from tkinter import messagebox
@@ -61,5 +62,17 @@ root.mainloop()
 
   
        
+=======
+#ticatactoe 
+
+print("- - -",
+      "- - -")
+
+#unfinished 
+
+
+
+
+>>>>>>> b6d3319447b8d81c0866ea3759d82f6261455c15
 
 
