@@ -1,9 +1,18 @@
 import random
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import font
 
+class TicTacToeBoard(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Tic-Tac-Toe")
+        self.cells = {}
+        
+        
 def score_board():
-    pass
+    global score 
+    score = (0,0)
             
 def entry():
     pass
@@ -33,8 +42,6 @@ def player_turn():
 # Configuring window settings
 root = tk.Tk()
 
-
- 
 buttons = []
 for i in range(3):
     row = []
