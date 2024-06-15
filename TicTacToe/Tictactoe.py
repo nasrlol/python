@@ -1,7 +1,7 @@
 import random
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import font
+from scoreboard import *
 
 class TicTacToeBoard(tk.Tk):
     def __init__(self):
@@ -9,11 +9,7 @@ class TicTacToeBoard(tk.Tk):
         self.title("Tic-Tac-Toe")
         self.cells = {}
         
-        
-def score_board():
-    global score 
-    score = (0,0)
-            
+    
 def entry():
     pass
     
@@ -31,7 +27,7 @@ def enemy_bot():
 def player_turn():
     coin = random.randint(1,2)
     
-    if coin == 1:
+    if coin == 1  :
         player1_start()
         
     elif coin == 2:
@@ -41,6 +37,7 @@ def player_turn():
        
 # Configuring window settings
 root = tk.Tk()
+
 
 buttons = []
 for i in range(3):
