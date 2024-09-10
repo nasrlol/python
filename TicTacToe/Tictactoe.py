@@ -9,7 +9,15 @@ class TicTacToeBoard(tk.Tk):
         self.title("Tic-Tac-Toe")
         self.cells = {}
         
+<<<<<<< HEAD
     
+=======
+        
+def score_board():v 
+    global score 
+    score = (0,0)
+            
+>>>>>>> 9efa197 (Refactor TicTacToe score_board function)
 def entry():
     pass
     
