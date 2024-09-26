@@ -1,8 +1,8 @@
 import random
-from tkinter import *
-import tkinter as tk
 import time
+from tkinter import *
 from tkinter import messagebox
+
 
 def start_game():
     start_time = time.time()
@@ -23,7 +23,7 @@ def check_reaction_time(start_time):
 
 
 def toggle_full_screen():
-    if not root.attributes("-fullscreen"):
+    if root.attributes("-fullscreen"):
         root.attributes("-fullscreen", True)
     else:
         root.attributes("-fullscreen", False)
