@@ -1,3 +1,5 @@
+# A speach transcriber using the google speech recognizer and then dsplaying it on the lcd of a raspberry pi
+
 from rpi_lcd import LCD
 import speech_recognition as sr
 from time import sleep

@@ -5,16 +5,15 @@ password = ""
 print("How many signs do you need the password to be?")
 password_size = input()
 
+try:
+    password_size = int(password_size)
+except ValueError:
+    print("Invalid input type")
+    exit()
 
-def check_type():
-    if password_size != int 
-        (
-            print("invalid input type")
-        )
-
-numbers = 1234567890
+numbers = "1234567890"
 letters = "azertyuiopqsdfghjklmwxcvbn"
-signs_string = "&é(-è_çà=+°)@^\`|[{#~¹}]"
+signs_string = "&é(-è_çà=+°)@^`|[{#~¹}]"
 
 print("press 1 if you want your password to only contain letters")
 print("press 2 if you want your password to only contain signs")
@@ -26,34 +25,29 @@ print("press 6 if you want your password to only contain numbers and signs")
 combination = input()
 new_password = password 
 
-if combination == 1:
-    (
-        for i in letters
-    )
-elif combination == 2:
-    (
-        for i in signs
-    )
-elif combination == 3:
-    (
-        for i in numbers
-    )   
-elif combination == 4:
-    (
-        for i in letters,numbers
-    )
-elif combination == 5:
-    (
-        for i in letters,signs
-    )
-elif combination == 6:
-    (
-        for i in numbers,signs:
-        (
-            while
-        )
+if combination == '1':
+    for i in range(password_size):
+        new_password += random.choice(letters)
+elif combination == '2':
+    for i in range(password_size):
+        new_password += random.choice(signs_string)
+elif combination == '3':
+    for i in range(password_size):
+        new_password += random.choice(numbers)
+elif combination == '4':
+    for i in range(password_size):
+        new_password += random.choice(letters + numbers)
+elif combination == '5':
+    for i in range(password_size):
+        new_password += random.choice(letters + signs_string)
+elif combination == '6':
+    for i in range(password_size):
+        new_password += random.choice(numbers + signs_string)
+else:
+    print("Invalid combination choice")
+    exit()
 
-    )
+print("Generated password:", new_password)
 
 
 
